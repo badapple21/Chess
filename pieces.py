@@ -19,7 +19,7 @@ class pawn(piece):
         self.col = col
         self.row = row
     def moves(self):
-        return [(self.col,self.row+1)]
+        return [(self.col,self.row+1), (self.col, self.row+2)]
 
 class rook(piece):
     def __init__(self, color, row, col):
@@ -34,6 +34,8 @@ class knight(piece):
         self.color = color
         self.col = col
         self.row = row
+    def moves(self):
+        return[(self.col-1, self.row+2),(self.col+1, self.row+2)]
 
 class bishop(piece):
     def __init__(self, color, row, col):

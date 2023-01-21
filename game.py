@@ -7,7 +7,11 @@ from math import *
 
 def show_possible_moves(possible_moves, screen):
     for move in possible_moves:
-        pygame.draw.circle(screen, (175, 175, 175, 50), ((move[0]*100)-50, 820-(move[1]*100)+30), 20)
+        if((move[0]+move[1])%2!=0):
+            color=(214,214,189,255)
+        else:
+            color=(106,135,77,255)
+        pygame.draw.circle(screen, color, ((move[0]*100)-50, 820-(move[1]*100)+30), 17)
 
 
 def drag_piece(piece, color,  screen, pos):

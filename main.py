@@ -78,6 +78,8 @@ def main():
 
                             selected_square.color = (246,246,105,255)
                             selected_piece = selected_square.piece
+                            possible_moves = selected_piece.moves()
+                            show_possible_moves(possible_moves, screen)
 
            
 
