@@ -5,6 +5,11 @@ import squares
 from math import *
 
 
+def show_possible_moves(possible_moves, screen):
+    for move in possible_moves:
+        pygame.draw.circle(screen, (175, 175, 175, 50), ((move[0]*100)-50, 820-(move[1]*100)+30), 20)
+
+
 def drag_piece(piece, color,  screen, pos):
     img = pygame.image.load(f"images\{color}\{piece}.png")
     screen.blit(img, (pos[0]-40, pos[1]-40))
@@ -14,13 +19,14 @@ def cursor_to_square(pos):
     pos = (pos[0]-1, pos[1]-1)
     return pos
 
-def update_board(screen, board):
+def update_board(screen, board, possible_moves):
     for row in board.squares:
         for square in row:
             if square.color and square.piece:
                 boards.game_board.color_square(8-square.row, square.col-1, square.color, screen)
             if square.piece and square.show==True:
                 square.piece.display(screen)
+    show_possible_moves(possible_moves, screen)
            
 def draw_bg(screen):
      for col in range(0,8):

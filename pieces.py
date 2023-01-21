@@ -18,6 +18,8 @@ class pawn(piece):
         self.color = color
         self.col = col
         self.row = row
+    def moves(self):
+        return [(self.col,self.row+1)]
 
 class rook(piece):
     def __init__(self, color, row, col):
